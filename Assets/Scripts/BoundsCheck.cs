@@ -4,8 +4,18 @@ using UnityEngine;
 
 public class BoundsCheck : MonoBehaviour
 {
+    [System.Flags]
+    public enum eScreenLocs
+    {
+        onScreen = 0,
+        offRight = 1,
+        offLeft = 2,
+        offUp = 4,
+        offDown = 8
+    }
     public enum eType { center, inset, outset}
     [Header("Inscribed")]
+    public eScreenLocs screenlocs = eScreenLocs.onScreen;
     public eType boundsType = eType.center;
     public float radius = 1f;
     public bool keepOnScreen = true;
